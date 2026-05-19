@@ -98,8 +98,11 @@ dictionary = {
     "あなた": "Noeli",
     "私": "Rei",
     "僕": "Aru",
+    "自分": "Ego",
+    "家族": "Famina",
+    "彼女": "Elia",
     "誰か": "Velis",
-
+   
     # 感情
     "愛": "Elia",
     "悲しみ": "Varein",
@@ -110,7 +113,14 @@ dictionary = {
     "絶望": "Velune",
     "温もり": "Noa",
 
-    # 世界
+   # 世界・概念
+    "ストーリー": "Scripta",
+    "物語": "Scripta",
+    "奇跡": "Miracla",
+    "悲劇": "Tragia",
+    "絆": "Vincla",
+    "誇り": "Gloria",
+    "正解": "Veritas",
     "光": "Sol",
     "闇": "Vel",
     "月": "Luneth",
@@ -119,6 +129,19 @@ dictionary = {
     "空": "Ashveil",
     "世界": "Elnor",
     "夢": "Lunaris",
+
+    # 【情景・身体・機械】
+    "声": "Vocia",
+    "風": "Anemol",
+    "胸": "Kardia",
+    "心臓": "Kardia",
+    "血": "Cruor",
+    "壁": "Murus",
+    "翼": "Penna",
+    "鉄": "Ferro",
+    "機械": "Machina",
+    "鼓動": "Pulsis",
+    "悪夢": "Noctura",
 
     # 記憶
     "記憶": "Reth",
@@ -139,6 +162,19 @@ dictionary = {
     "守る": "Rethiel",
     "堕ちる": "Velneth",
     "照らす": "Solen",
+    "響く": "Reson",
+    "響き始めた": "Resonare",
+    "映る": "Visu",
+    "否定した": "Negat",
+    "預ける": "Credo",
+    "塗り替え": "Alba",
+    "白く染めた": "Alba",
+    "塗り替えた": "Alba",
+    "切り裂け": "Secare",
+    "信じられる": "Fidere",
+    "抱きしめられ": "Amplex",
+    "救われた": "Salva",
+    "生きていく": "Elvain",
 
     # 助詞
     "の": " no ",
