@@ -5,6 +5,7 @@
 # =========================================
 
 import streamlit as st
+from janome.tokenizer import Tokenizer
 import random
 import re
 
@@ -372,68 +373,55 @@ def machine_noise(text):
     return result
 
 # =========================================
-# 変換関数
+# 変換関数（改良版：自動単語分解）
 # =========================================
 
 def translate_lyrics(text):
-
-    result = text
-
-    # 長い単語優先
-    sorted_words = sorted(
-        dictionary.keys(),
-        key=len,
-        reverse=True
-    )
-
-    # 一部だけ変換する用
-    conversion_count = int(
-        len(sorted_words) * (fake_ratio / 100)
-    )
-
-    selected_words = sorted_words[:conversion_count]
-
-    # 辞書変換
-    for jp in selected_words:
-        result = result.replace(jp, dictionary[jp])
-
-    # 行ごと整形
-    lines = result.split("\n")
+    # Janomeの解析器を準備
+    t = Tokenizer()
+    
+    # 行ごとに処理
+    lines = text.split("\n")
     formatted = []
 
     for line in lines:
-
         line = line.strip()
-
         if not line:
             continue
 
-        # モード適用
-        line = apply_mode(line)
+        # 1. 日本語の文章を自動で単語に分解する
+        # 例：「胸を叩けば」 -> ["胸", "を", "叩け", "ば"]
+        parsed_words = [token.surface for token in t.tokenize(line)]
+        
+        # 2. 分解した単語ごとに辞書と照らし合わせて置換
+        translated_line_words = []
+        for word in parsed_words:
+            if word in dictionary:
+                translated_line_words.append(dictionary[word])
+            else:
+                # 辞書にない場合はそのまま（「を」などの助詞や辞書未登録の単語）
+                translated_line_words.append(word)
+        
+        # 単語を繋ぎ直して1つの文にする
+        current_line = "".join(translated_line_words)
 
-        # 母音伸ばし
-        line = stretch_vowels(line)
-
-        # コーラス化
-        line = chorusify(line)
-
-        # 詩化
-        line = poetic_break(line)
+        # 3. 既存の各種モードや演出を適用
+        current_line = apply_mode(current_line)     # モード適用
+        current_line = stretch_vowels(current_line)  # 母音伸ばし
+        current_line = chorusify(current_line)      # コーラス化
+        current_line = poetic_break(current_line)   # 詩化
 
         # 余韻追加
         if ellipsis:
             if random.random() < 0.35:
-                line += "..."
+                current_line += "..."
 
-        formatted.append(line)
+        formatted.append(current_line)
 
     # サビ演出
     if chorus_mode:
-
         formatted.append("")
-        formatted.append(
-            random.choice(chorus_words)
-        )
+        formatted.append(random.choice(chorus_words))
 
     return "\n".join(formatted)
 
