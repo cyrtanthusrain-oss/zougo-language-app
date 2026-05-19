@@ -103,6 +103,9 @@ dictionary = {
     "家族": "Famina",
     "彼女": "Elia",
     "誰か": "Velis",
+    "一人": "Unus",
+    "涙": "Lacrima",
+   
    
     # 感情
     "愛": "Elia",
@@ -113,8 +116,10 @@ dictionary = {
     "優しさ": "Lethia",
     "絶望": "Velune",
     "温もり": "Noa",
+    "恋": "Amoria",
+    "心": "anima",
 
-   # 世界・概念
+   # 世界・概念・行動
     "ストーリー": "Scripta",
     "物語": "Scripta",
     "奇跡": "Miracla",
@@ -130,6 +135,13 @@ dictionary = {
     "空": "Ashveil",
     "世界": "Elnor",
     "夢": "Lunaris",
+    "否定": "Negatio",
+    "未来": "Prothea",
+    "痛み": "Dolor",
+    "救われた": "Salvato",
+    "結末": "Finis",
+    "教わる": "Doce",
+    "間違い": "Falsia",
 
     # 【情景・身体・機械】
     "声": "Vocia",
@@ -151,6 +163,14 @@ dictionary = {
     "命": "Elnora",
     "存在": "Nores",
     "終焉": "Endveil",
+
+    # 【自然・情景・お別れ】
+    "色": "Coloris",
+    "光": "Sol",
+    "背中": "Dorsum",
+    "元へ": "Versus",
+    "最高": "Optima",
+    "ありがとう": "Gratia",
 
     # 動詞
     "消える": "Noreth",
@@ -176,6 +196,15 @@ dictionary = {
     "抱きしめられ": "Amplex",
     "救われた": "Salva",
     "生きていく": "Elvain",
+
+    # 【ひらがな・口語対策】
+    "ば": " si ",
+    "から": " ex ",
+    "で": " vi ",
+    "けん": "Spada",
+    "した": " -as",
+    "している": " -ento",
+    "ない": " -nes",
 
     # 助詞
     "の": " no ",
